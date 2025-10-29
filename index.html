@@ -1,189 +1,500 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Çeliksan Pompa Kullanımı - Sekmeli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="description" content="Ankara İtfaiyesi 2023 Çift Kabin İveco Çeliksan Pompa Kullanım Kılavuzu" />
+  <title>ÇELİKSAN POMPA KULLANIM KILAVUZU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --accent: #e63946;
+      --accent-dark: #c1121f;
+      --accent-glow: rgba(230, 57, 70, 0.3);
+      --soft: #fff5f6;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6c757d;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+      --gradient-1: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fefefe;
-      color: #333;
+      padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fafafa;
-      padding: 20px 15px;
-      border-bottom: 3px solid #b30000;
-      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--gradient-1);
+      padding: 16px 24px;
+      box-shadow: var(--shadow-lg);
+      animation: slideDown 0.5s ease;
     }
 
-    .logo-left img, .logo-right img {
-      height: 80px;
-      border-radius: 10px;
-      background: #fff;
-      padding: 5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-container img {
+      height: 90px;
+      border-radius: 12px;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.05);
     }
 
     .title-section {
+      flex: 1;
       text-align: center;
-      flex-grow: 1;
     }
 
     .title-section h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: #b30000;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      margin-bottom: 4px;
     }
 
     .title-section h2 {
-      margin: 5px 0 0 0;
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #fff;
-      border-bottom: 2px solid #ddd;
-    }
-
-    .tab-button {
-      padding: 14px 20px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      outline: none;
+      color: rgba(255, 255, 255, 0.9);
       font-size: 1rem;
       font-weight: 500;
-      transition: background 0.3s;
-      color: #b30000;
-      border-bottom: 3px solid transparent;
+      letter-spacing: 0.3px;
     }
 
-    .tab-button:hover,
-    .tab-button.active {
-      background: #f2f2f2;
-      border-color: #b30000;
+    /* Tabs */
+    .tabs {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 102px;
+      z-index: 999;
+      box-shadow: var(--shadow-sm);
     }
 
-    .tab-content {
+    .tabs-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 0 24px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--soft);
+    }
+
+    .tabs-inner::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .tabs-inner::-webkit-scrollbar-track {
+      background: var(--soft);
+    }
+
+    .tabs-inner::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .tab-btn {
+      padding: 16px 20px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all 0.3s;
+      white-space: nowrap;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: var(--soft);
+    }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      background: var(--soft);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Content */
+    .content {
       display: none;
-      padding: 20px;
+    }
+
+    .content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .content-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+
+    .content-card img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-1);
+      color: white;
+      padding: 32px 24px;
+      margin-top: 48px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
       text-align: center;
     }
 
-    .tab-content.active {
-      display: block;
+    .footer-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .tab-content img {
-    width: auto;
-    max-width: 950px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  @media (max-width: 950px) {
-    .tab-content img {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-
-  /* restore tab-content */
-
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    .footer-section p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    @media (max-width: 950px) {
-      .title-section h1 {
-        font-size: 1.2rem;
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .logo-container img {
+        height: 80px;
       }
+
+      .title-section h1 {
+        font-size: 1.3rem;
+      }
+
       .title-section h2 {
         font-size: 0.9rem;
       }
-      .logo-left img, .logo-right img {
-        height: 60px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 16px;
       }
-      .tab-button {
-        font-size: 0.95rem;
-        padding: 10px;
+
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        gap: 12px;
       }
+
+      .logo-container {
+        display: flex;
+      }
+
+      .logo-container img {
+        height: 70px;
+      }
+
+      .title-section h1 {
+        font-size: 1rem;
+      }
+
+      .title-section h2 {
+        font-size: 0.7rem;
+      }
+
+      .tabs {
+        top: 94px;
+      }
+
+      .tabs-inner {
+        padding: 0 16px;
+        overflow-x: visible;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tab-btn {
+        padding: 12px 14px;
+        font-size: 0.8rem;
+      }
+
+      .container {
+        padding: 24px 16px;
+      }
+
+      .content-card {
+        padding: 20px;
+      }
+
+      footer {
+        padding: 24px 16px;
+        margin-top: 32px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-section h3 {
+        font-size: 1.1rem;
+      }
+
+      .footer-section p {
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom {
+        margin-top: 24px;
+        padding-top: 20px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .logo-container img {
+        height: 55px;
+      }
+
+      .title-section h1 {
+        font-size: 0.85rem;
+      }
+
+      .title-section h2 {
+        font-size: 0.6rem;
+      }
+
+      .tab-btn {
+        padding: 10px 12px;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 6px;
+      border: 3px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-dark);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo-left">
-      <img src="https://s.ankara.bel.tr/files/2022/11/24/6e7ea7997a234e3b8089fd0779c5e1e6.jpeg" alt="ABB" />
-    </div>
-    <div class="title-section">
-      <h1>ANKARA İTFAİYESİ</h1>
-      <h2>2023 ÇİFT KABİN İVECO ÇELİKSAN POMPA KULLANIMI</h2>
-    </div>
-    <div class="logo-right">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Emblem_of_Turkish_Firefighters.svg/640px-Emblem_of_Turkish_Firefighters.svg.png" alt="İTFAİYE" />
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="https://s.ankara.bel.tr/files/2022/11/24/6e7ea7997a234e3b8089fd0779c5e1e6.jpeg" alt="Ankara Belediyesi">
+      </div>
+      <div class="title-section">
+        <h1>ANKARA İTFAİYESİ</h1>
+        <h2>2023 ÇİFT KABİN İVECO ÇELİKSAN POMPA KULLANIMI</h2>
+      </div>
+      <div class="logo-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Emblem_of_Turkish_Firefighters.svg/640px-Emblem_of_Turkish_Firefighters.svg.png" alt="İtfaiye">
+      </div>
     </div>
   </header>
 
   <nav class="tabs">
-    <button class="tab-button active" data-tab="giris">Giriş</button>
-    <button class="tab-button" data-tab="panel">Araç İçi Panel</button>
-    <button class="tab-button" data-tab="pompa-panel">Pompa Paneli</button>
-    <button class="tab-button" data-tab="su">Su İşleme</button>
-    <button class="tab-button" data-tab="pompa">Köpük İşleme</button>
-    <button class="tab-button" data-tab="ariza">Acil Durumda</button>
+    <div class="tabs-inner">
+      <button class="tab-btn active" data-tab="giris">Giriş</button>
+      <button class="tab-btn" data-tab="panel">Araç İçi Panel</button>
+      <button class="tab-btn" data-tab="pompa-panel">Pompa Paneli</button>
+      <button class="tab-btn" data-tab="su">Su İşleme</button>
+      <button class="tab-btn" data-tab="kopuk">Köpük İşleme</button>
+      <button class="tab-btn" data-tab="ariza">Acil Durumda</button>
+    </div>
   </nav>
 
-  <section id="giris" class="tab-content active">
-    <img src="https://i.imgur.com/klnyFwQ.jpeg" alt="Giriş">
-  </section>
+  <div class="container">
+    <div id="giris" class="content active">
+      <div class="content-card">
+        <img src="https://i.imgur.com/klnyFwQ.jpeg" alt="Giriş">
+      </div>
+    </div>
 
-  <section id="su" class="tab-content">
-    <img src="https://i.imgur.com/YUeufPR.jpeg" alt="Su İşleme">
-  </section>
+    <div id="panel" class="content">
+      <div class="content-card">
+        <img src="https://i.imgur.com/NpFFTST.jpeg" alt="Araç Paneli">
+      </div>
+    </div>
 
-  <section id="panel" class="tab-content">
-    <img src="https://i.imgur.com/NpFFTST.jpeg" alt="Araç Paneli">
-  </section>
+    <div id="pompa-panel" class="content">
+      <div class="content-card">
+        <img src="https://i.imgur.com/C57PlCp.jpeg" alt="Pompa Paneli">
+      </div>
+    </div>
 
-  <section id="pompa-panel" class="tab-content">
-    <img src="https://i.imgur.com/C57PlCp.jpeg" alt="Pompa Paneli">
-  </section>
+    <div id="su" class="content">
+      <div class="content-card">
+        <img src="https://i.imgur.com/YUeufPR.jpeg" alt="Su İşleme">
+      </div>
+    </div>
 
-  <section id="pompa" class="tab-content">
-    <img src="https://i.imgur.com/mIS84Zr.jpeg" alt="Pompa">
-  </section>
+    <div id="kopuk" class="content">
+      <div class="content-card">
+        <img src="https://i.imgur.com/mIS84Zr.jpeg" alt="Köpük İşleme">
+      </div>
+    </div>
 
-  <section id="ariza" class="tab-content">
-    <img src="https://i.imgur.com/jU6lCnX.jpeg" alt="Arıza Durumu">
-  </section>
+    <div id="ariza" class="content">
+      <div class="content-card">
+        <img src="https://i.imgur.com/jU6lCnX.jpeg" alt="Acil Durumda">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>📞 İletişim</h3>
+        <p>Ankara Büyükşehir Belediyesi<br>İtfaiye Dairesi Başkanlığı<br>+90 312 507 4800<br>Acil: 112</p>
+      </div>
+      <div class="footer-section">
+        <h3>🚒 Araç Bilgisi</h3>
+        <p>2023 Çift Kabin İveco<br>Çeliksan Pompa Sistemi<br>Su Kapasitesi: 4.000 Litre</p>
+      </div>
+      <div class="footer-section">
+        <h3>⚠️ Önemli Not</h3>
+        <p>Bu kullanım kılavuzu sadece<br>bilgi amaçlıdır. Araç kullanımında<br>resmi eğitim şarttır.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Ankara Büyükşehir Belediyesi İtfaiye Dairesi Başkanlığı - Tüm Hakları Saklıdır
+    </div>
+  </footer>
 
   <script>
-    const buttons = document.querySelectorAll('.tab-button');
-    const tabs = document.querySelectorAll('.tab-content');
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.content');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-
-        button.classList.add('active');
-        document.getElementById(button.dataset.tab).classList.add('active');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        
+        tabBtns.forEach(b => b.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   </script>
