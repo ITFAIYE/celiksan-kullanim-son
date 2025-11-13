@@ -392,6 +392,49 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent-dark);
     }
+.title-section {
+      text-align: center;
+      flex-grow: 1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 10px 20px;
+      border-radius: 12px;
+    }
+
+    .title-section:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.02);
+    }
+
+    .title-section:active {
+      transform: scale(0.98);
+    }
+
+    .title-section h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .title-section:hover h1 {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      letter-spacing: 0.5px;
+    }
+
+    .title-section h2 {
+      margin: 5px 0 0 0;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.95);
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    .title-section:hover h2 {
+      color: rgba(255,255,255,1);
+    }
   </style>
 </head>
 <body>
@@ -401,7 +444,7 @@
       <div class="logo-container">
         <img src="https://s.ankara.bel.tr/files/2022/11/24/6e7ea7997a234e3b8089fd0779c5e1e6.jpeg" alt="Ankara Belediyesi">
       </div>
-      <div class="title-section">
+    <div class="title-section" onclick="window.location.href='https://itfaiye.github.io/liste'">
         <h1>ANKARA İTFAİYESİ</h1>
         <h2>2023 ÇİFT KABİN İVECO ÇELİKSAN POMPA KULLANIMI</h2>
       </div>
